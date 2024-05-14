@@ -133,6 +133,41 @@
       <height>31</height>
      </rect>
     </property>
+    <item>
+     <property name="text">
+      <string>None</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Trung bình</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Trung bình có trọng số</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Trung vị</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Gaussian</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Max</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Min</string>
+     </property>
+    </item>
    </widget>
    <widget class="QPushButton" name="save">
     <property name="geometry">

@@ -11,7 +11,9 @@ class MainWindow:
         self.uic = Ui_MainWindow()
         self.uic.setupUi(self.main_win)
         self.uic.browser.clicked.connect(self.linkto)
+        self.uic.check_box_2.hide()
         self.uic.check_box.currentIndexChanged.connect(self.handle_combobox_change)
+
         self.uic.save.clicked.connect(self.save_img)
 
         self.image_path = None
@@ -47,20 +49,14 @@ class MainWindow:
             self.uic.line_Edit.setText(self.image_path)
 
     def handle_combobox_change(self, index):
-        self.uic.check_box_2.clear()
+        self.uic.check_box_2.hide()
         if index == 0:
             self.uic.screen.setPixmap(QPixmap(self.image_path))
         if index == 1:
             self.uic.screen.setPixmap(QPixmap("C:\\Users\\chieu\\OneDrive\\Pictures\\b.jpg"))
         if index == 2:
+            self.uic.check_box_2.show()
             self.uic.screen.setPixmap(QPixmap(self.image_path))
-            self.uic.check_box_2.addItem("None")
-            self.uic.check_box_2.addItem("Trung bình")
-            self.uic.check_box_2.addItem("Trung bình có trọng số")
-            self.uic.check_box_2.addItem("Trung vị")
-            self.uic.check_box_2.addItem("Gaussian")
-            self.uic.check_box_2.addItem("Max")
-            self.uic.check_box_2.addItem("Min")
             self.uic.check_box_2.currentIndexChanged.connect(self.handle_combobox_change_2)
 
     def handle_combobox_change_2(self, index):
