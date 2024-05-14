@@ -47,34 +47,22 @@ class MainWindow:
             self.uic.line_Edit.setText(self.image_path)
 
     def handle_combobox_change(self, index):
-        if index == 1 and self.image_path:
-            self.qse()
-
-    def qse(self):
-        if not self.image_path:
-            return
-
-        # Open the image using Pillow
-        image = Image.open(self.image_path)
-
-        # Apply a grayscale filter (example of a time filter)
-        image = ImageOps.grayscale(image)
-
-        # Convert the processed image to QPixmap and display it
-        qt_image = self.pil2pixmap(image)
-        self.uic.screen.setPixmap(qt_image)
-
-    def pil2pixmap(self, image):
-        # Convert PIL image to QImage
-        if image.mode == "RGB":
-            r, g, b = image.split()
-            image = Image.merge("RGB", (b, g, r))
-        elif image.mode == "L":
-            image = image.convert("RGB")
-        data = image.tobytes("raw", "RGB")
-        qimage = QImage(data, image.width, image.height, QImage.Format_RGB888)
-        pixmap = QPixmap.fromImage(qimage)
-        return pixmap
+        self.uic.check_box_2.clear()
+        self.uic.check_box_2.addItem("None")
+        if index == 0:
+            self.uic.screen.setPixmap(QPixmap(self.image_path))
+        if index == 1:
+            self.image_path = "C:\\Users\\chieu\\OneDrive\\Pictures\\b.jpg"
+            self.uic.screen.setPixmap(QPixmap(self.image_path))
+        if index == 2:
+            self.image_path = "C:\\Users\\chieu\\OneDrive\\Pictures\\a.jpg"
+            self.uic.screen.setPixmap(QPixmap(self.image_path))
+            self.uic.check_box_2.addItem("Trung bình")
+            self.uic.check_box_2.addItem("Trung bình có trọng số")
+            self.uic.check_box_2.addItem("Trung vị")
+            self.uic.check_box_2.addItem("Gaussian")
+            self.uic.check_box_2.addItem("Max")
+            self.uic.check_box_2.addItem("Min")
 
 
     def show(self):
