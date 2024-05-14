@@ -61,7 +61,6 @@ class Ui_MainWindow(object):
         self.check_box_2 = QtWidgets.QComboBox(self.centralwidget)
         self.check_box_2.setGeometry(QtCore.QRect(330, 50, 161, 31))
         self.check_box_2.setObjectName("check_box_2")
-        self.check_box_2.addItem("")
         self.save = QtWidgets.QPushButton(self.centralwidget)
         self.save.setGeometry(QtCore.QRect(350, 10, 81, 31))
         icon1 = QtGui.QIcon()
@@ -84,7 +83,6 @@ class Ui_MainWindow(object):
         self.check_box.setItemText(1, _translate("MainWindow", "Bộ lọc tần số"))
         self.check_box.setItemText(2, _translate("MainWindow", "Bộ lọc thời gian"))
         self.label_2.setText(_translate("MainWindow", "Chọn bộ lọc"))
-        self.check_box_2.setItemText(0, _translate("MainWindow", "None"))
         self.save.setText(_translate("MainWindow", "Save"))
 
 

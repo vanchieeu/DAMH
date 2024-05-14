@@ -48,21 +48,23 @@ class MainWindow:
 
     def handle_combobox_change(self, index):
         self.uic.check_box_2.clear()
-        self.uic.check_box_2.addItem("None")
         if index == 0:
             self.uic.screen.setPixmap(QPixmap(self.image_path))
         if index == 1:
-            self.image_path = "C:\\Users\\chieu\\OneDrive\\Pictures\\b.jpg"
-            self.uic.screen.setPixmap(QPixmap(self.image_path))
+            self.uic.screen.setPixmap(QPixmap("C:\\Users\\chieu\\OneDrive\\Pictures\\b.jpg"))
         if index == 2:
-            self.image_path = "C:\\Users\\chieu\\OneDrive\\Pictures\\a.jpg"
             self.uic.screen.setPixmap(QPixmap(self.image_path))
+            self.uic.check_box_2.addItem("None")
             self.uic.check_box_2.addItem("Trung bình")
             self.uic.check_box_2.addItem("Trung bình có trọng số")
             self.uic.check_box_2.addItem("Trung vị")
             self.uic.check_box_2.addItem("Gaussian")
             self.uic.check_box_2.addItem("Max")
             self.uic.check_box_2.addItem("Min")
+            self.uic.check_box_2.currentIndexChanged.connect(self.handle_combobox_change_2)
+
+    def handle_combobox_change_2(self, index):
+        pass
 
 
     def show(self):
