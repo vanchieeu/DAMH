@@ -1,9 +1,11 @@
 import sys
 
+import cv2
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from input_output import browser, save_img
 from GUI import Ui_MainWindow
+import matplotlib.pyplot as plt
 from handle_combobox_change_2.handle_combobox_change_2 import handle_combobox_change_2
 
 class MainWindow:
@@ -20,15 +22,22 @@ class MainWindow:
         if self.image_path == None:
             self.uic.check_box.hide()
             self.uic.label_2.hide()
+            self.uic.compare.hide()
+            self.uic.save.hide()
 
     def handle_combobox_change(self, index):
         self.uic.check_box_2.hide()
+        self.uic.compare.hide()
+        self.uic.save.show()
         if index == 0:
+            self.uic.save.hide()
             self.uic.screen.setPixmap(QPixmap(self.image_path))
         if index == 1:
             self.uic.screen.setPixmap(QPixmap("C:\\Users\\chieu\\OneDrive\\Pictures\\b.jpg"))
         if index == 2:
             self.uic.check_box_2.show()
+            self.uic.compare.show()
+            self.uic.save.hide()
             self.uic.screen.setPixmap(QPixmap(self.image_path))
             self.uic.check_box_2.currentIndexChanged.connect(lambda idx: handle_combobox_change_2(self, idx))
 

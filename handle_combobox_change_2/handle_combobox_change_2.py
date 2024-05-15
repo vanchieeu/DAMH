@@ -2,10 +2,13 @@ import cv2
 from PyQt5.QtGui import QPixmap
 from convert_img_to_pixmap.convert_img_to_pixmap import convert_array_to_pixmap
 from filter.time_domain_filter import Tich_chap, locTB, locTB_trong_so, locGaussian, loc_trung_vi, loc_max_min
+import matplotlib.pyplot as plt
 
 def handle_combobox_change_2(self, index):
-    img = cv2.imread(self.image_path, 0)
+    self.uic.save.show()
+    img = cv2.imread(self.image_path, cv2.IMREAD_GRAYSCALE)
     if self.uic.check_box_2.currentIndex() == 0:
+        self.uic.save.hide()
         self.uic.screen.setPixmap(QPixmap(self.image_path))
     elif self.uic.check_box_2.currentIndex() == 1:
         imgTB = Tich_chap(img, locTB)

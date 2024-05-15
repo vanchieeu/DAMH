@@ -1,4 +1,6 @@
-import numpy as np
+import cv2     # Thư viện OpenCV
+import numpy as np   # Thư viện numy để làm việc dữ liệu kiểu mảng
+import matplotlib.pyplot as plt # import thư viện matplotlib để vẽ ảnh
 
 def Tich_chap(img, mask):
     m, n = img.shape
@@ -49,6 +51,7 @@ def loc_trung_vi(img):
 
             temp = sorted(temp)
             img_new[i, j] = temp[4]
+    img_new = img_new.astype(np.uint8)
     return img_new
 
 def loc_max_min(img, index):
@@ -71,4 +74,5 @@ def loc_max_min(img, index):
             else:
                 temp = min(temp)
             img_new[i, j] = temp
+    img_new = img_new.astype(np.uint8)
     return img_new
