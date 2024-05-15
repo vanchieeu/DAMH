@@ -71,7 +71,7 @@
      <rect>
       <x>90</x>
       <y>50</y>
-      <width>141</width>
+      <width>171</width>
       <height>31</height>
      </rect>
     </property>
@@ -87,7 +87,12 @@
     </item>
     <item>
      <property name="text">
-      <string>Bộ lọc mịn ảnh</string>
+      <string extracomment="Lọc thông thấp">Bộ lọc mịn ảnh</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Bộ lọc sắc nét</string>
      </property>
     </item>
    </widget>
@@ -132,7 +137,7 @@
    <widget class="QComboBox" name="check_box_2">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>270</x>
       <y>50</y>
       <width>161</width>
       <height>31</height>
@@ -231,6 +236,41 @@
     <property name="text">
      <string>Compare</string>
     </property>
+   </widget>
+   <widget class="QComboBox" name="check_box_3">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>50</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>None</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Laplacian chuẩn</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Laplacian biến thể</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Robert Cross Gradient</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Sobel</string>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

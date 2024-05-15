@@ -6,7 +6,8 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 from input_output import browser, save_img
 from GUI import Ui_MainWindow
 import matplotlib.pyplot as plt
-from handle_combobox_change_2.handle_combobox_change_2 import handle_combobox_change_2
+from handle_combobox_change.handle_combobox_change_2 import handle_combobox_change_2
+from handle_combobox_change.handle_combobox_change_3 import handle_combobox_change_3
 
 class MainWindow:
     def __init__(self):
@@ -15,6 +16,7 @@ class MainWindow:
         self.uic.setupUi(self.main_win)
         self.uic.browser.clicked.connect(lambda: browser.linkto(self))
         self.uic.check_box_2.hide()
+        self.uic.check_box_3.hide()
         self.uic.check_box.currentIndexChanged.connect(self.handle_combobox_change)
         self.uic.save.clicked.connect(lambda: save_img.save_img(self))
 
@@ -27,6 +29,7 @@ class MainWindow:
 
     def handle_combobox_change(self, index):
         self.uic.check_box_2.hide()
+        self.uic.check_box_3.hide()
         self.uic.compare.hide()
         self.uic.save.show()
         if index == 0:
@@ -40,6 +43,12 @@ class MainWindow:
             self.uic.save.hide()
             self.uic.screen.setPixmap(QPixmap(self.image_path))
             self.uic.check_box_2.currentIndexChanged.connect(lambda idx: handle_combobox_change_2(self, idx))
+        if index == 3:
+            self.uic.check_box_3.show()
+            self.uic.compare.show()
+            self.uic.save.hide()
+            self.uic.screen.setPixmap(QPixmap(self.image_path))
+            self.uic.check_box_3.currentIndexChanged.connect(lambda idx: handle_combobox_change_3(self, idx))
 
     def show(self):
         self.main_win.show()
