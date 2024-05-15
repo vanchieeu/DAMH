@@ -1,4 +1,5 @@
 from PyQt5.QtGui import QPixmap
+from handle_combobox_change.handle_combobox_change_2 import handle_combobox_change_2
 
 def handle_combobox_change(main_window, index):
     main_window.uic.check_box_2.hide()
@@ -10,6 +11,3 @@ def handle_combobox_change(main_window, index):
         main_window.uic.check_box_2.show()
         main_window.uic.screen.setPixmap(QPixmap(main_window.image_path))
         main_window.uic.check_box_2.currentIndexChanged.connect(lambda index: handle_combobox_change_2(main_window, index))
-
-def handle_combobox_change_2(main_window, index):
-    pass
