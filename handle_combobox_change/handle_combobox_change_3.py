@@ -1,5 +1,9 @@
 import cv2
 import os
+import numpy as np
+from GUI.bo_loc_min import Ui_MainWindow2
+from PyQt5.QtWidgets import QApplication, QMainWindow
+import matplotlib.pyplot as plt
 from PyQt5.QtGui import QPixmap
 from convert_img_to_pixmap.convert_img_to_pixmap import convert_array_to_pixmap
 from filter.robert_cross_gradient_filter import Tich_chap, loc_Robert_Cross1, loc_Robert_Cross2
@@ -56,4 +60,27 @@ def handle_combobox_change_3(self, index):
             pixmap = convert_array_to_pixmap(img_cai_thien_loc_Laplacian_Bien_The_1)
             self.uic.screen.setPixmap(pixmap)
             save_img(self.uic.check_box_3.currentIndex(), img_cai_thien_loc_Laplacian_Bien_The_1)
+
+def compare_change_3(self):
+    for i in [1, 2, 3, 4, 0]:
+        self.uic.check_box_3.setCurrentIndex(i)
+        handle_combobox_change_3(self, i)
+
+    fig = plt.figure(figsize=(16, 9))  # Tạo vùng vẽ tỷ lệ 16:9
+    (ax1, ax2, ax3), (ax4, ax5, ax6) = fig.subplots(2, 3)
+
+    for i in [1, 2, 3, 4]:
+        path = get_path(i)
+        img = cv2.imread(path, 0)
+        if i == 1:
+            ax1.imshow(img, cmap='gray')
+        elif i == 2:
+            ax2.imshow(img, cmap='gray')
+        elif i == 3:
+            ax3.imshow(img, cmap='gray')
+        elif i == 4:
+            ax4.imshow(img, cmap='gray')
+
+    plt.show()
+
 

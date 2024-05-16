@@ -77,3 +77,8 @@ def handle_combobox_change_4(self, index):
         print("3")
     elif self.uic.check_box_4.currentIndex() == 4:
         print("4")
+
+def compare_change_4(self):
+    for i in [1, 2, 3, 4, 0]:
+        self.uic.check_box_4.setCurrentIndex(i)
+        handle_combobox_change_4(self, i)

@@ -22,7 +22,11 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Bộ lọc ảnh</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>icon/main_window_icon.jpg</normaloff>icon/main_window_icon.jpg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="browser">
@@ -44,7 +48,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../icon/browser-icon-image.jpg</normaloff>../icon/browser-icon-image.jpg</iconset>
+      <normaloff>icon/browser-icon-image.jpg</normaloff>icon/browser-icon-image.jpg</iconset>
     </property>
    </widget>
    <widget class="QLabel" name="screen">
@@ -188,7 +192,7 @@
    <widget class="QPushButton" name="save">
     <property name="geometry">
      <rect>
-      <x>437</x>
+      <x>460</x>
       <y>10</y>
       <width>71</width>
       <height>31</height>
@@ -204,7 +208,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../icon/save-icon-png-image.jpg</normaloff>../icon/save-icon-png-image.jpg</iconset>
+      <normaloff>icon/save-icon-png-image.jpg</normaloff>icon/save-icon-png-image.jpg</iconset>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -225,12 +229,12 @@
      <string>Please choose one picture</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="compare">
+   <widget class="QPushButton" name="compare_2">
     <property name="geometry">
      <rect>
       <x>349</x>
       <y>10</y>
-      <width>81</width>
+      <width>101</width>
       <height>31</height>
      </rect>
     </property>
@@ -241,6 +245,10 @@
     </property>
     <property name="text">
      <string>Compare</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icon/compare.png</normaloff>icon/compare.png</iconset>
     </property>
    </widget>
    <widget class="QComboBox" name="check_box_3">
@@ -283,7 +291,7 @@
      <rect>
       <x>270</x>
       <y>50</y>
-      <width>161</width>
+      <width>181</width>
       <height>31</height>
      </rect>
     </property>
@@ -324,6 +332,50 @@
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="compare_3">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>10</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Compare</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icon/compare.png</normaloff>icon/compare.png</iconset>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="compare_4">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>10</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Compare</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icon/compare.png</normaloff>icon/compare.png</iconset>
     </property>
    </widget>
   </widget>

@@ -64,3 +64,8 @@ def handle_combobox_change_2(self, index):
             pixmap = convert_array_to_pixmap(imgMin)
             self.uic.screen.setPixmap(pixmap)
             save_img(self.uic.check_box_2.currentIndex(), imgMin)
+
+def compare_change_2(self):
+    for i in [1, 2, 3, 4, 5, 6, 0]:
+        self.uic.check_box_2.setCurrentIndex(i)
+        handle_combobox_change_2(self, i)
