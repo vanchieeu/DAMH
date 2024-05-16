@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>673</width>
-    <height>479</height>
+    <width>689</width>
+    <height>503</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -52,8 +52,8 @@
      <rect>
       <x>10</x>
       <y>90</y>
-      <width>651</width>
-      <height>351</height>
+      <width>671</width>
+      <height>391</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -119,6 +119,9 @@
     </property>
    </widget>
    <widget class="QLineEdit" name="line_Edit">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -132,6 +135,9 @@
       <family>Times New Roman</family>
       <pointsize>10</pointsize>
      </font>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
    <widget class="QComboBox" name="check_box_2">
@@ -182,9 +188,9 @@
    <widget class="QPushButton" name="save">
     <property name="geometry">
      <rect>
-      <x>580</x>
+      <x>437</x>
       <y>10</y>
-      <width>81</width>
+      <width>71</width>
       <height>31</height>
      </rect>
     </property>
@@ -204,8 +210,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>50</y>
+      <x>20</x>
+      <y>10</y>
       <width>161</width>
       <height>31</height>
      </rect>
@@ -222,7 +228,7 @@
    <widget class="QPushButton" name="compare">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>349</x>
       <y>10</y>
       <width>81</width>
       <height>31</height>
@@ -271,6 +277,54 @@
       <string>Sobel</string>
      </property>
     </item>
+   </widget>
+   <widget class="QComboBox" name="check_box_4">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>50</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>None</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Butterworth thông cao</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Butterworth thông thấp</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Gaussian thông cao</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Gaussian thông thấp</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QSplitter" name="splitter">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>10</y>
+      <width>51</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
