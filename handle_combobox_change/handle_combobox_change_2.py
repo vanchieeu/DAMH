@@ -1,6 +1,8 @@
 import cv2
 import os
 from PyQt5.QtGui import QPixmap
+from GUI.bo_loc_min import Ui_MainWindow3
+from PyQt5 import QtCore, QtGui, QtWidgets
 from convert_img_to_pixmap.convert_img_to_pixmap import convert_array_to_pixmap
 from filter.time_domain_filter import Tich_chap, locTB, locTB_trong_so, locGaussian, loc_trung_vi, loc_max_min
 
@@ -69,3 +71,29 @@ def compare_change_2(self):
     for i in [1, 2, 3, 4, 5, 6, 0]:
         self.uic.check_box_2.setCurrentIndex(i)
         handle_combobox_change_2(self, i)
+    set_screen_2(self)
+
+def set_screen_2(self):
+    self.MainWindow3 = QtWidgets.QMainWindow()
+    self.ui = Ui_MainWindow3()
+    self.ui.setupUi(self.MainWindow3)
+
+    for index in [1, 2, 3, 4, 5, 6]:
+        path = get_path(index)
+        img = cv2.imread(path, 0)
+        img = cv2.resize(src=img, dsize=(self.ui.screen_1.geometry().width(), self.ui.screen_1.geometry().height()))
+        pixmap = convert_array_to_pixmap(img)
+        if index == 1:
+            self.ui.screen_1.setPixmap(pixmap)
+        elif index == 2:
+            self.ui.screen_2.setPixmap(pixmap)
+        elif index == 3:
+            self.ui.screen_3.setPixmap(pixmap)
+        elif index == 4:
+            self.ui.screen_4.setPixmap(pixmap)
+        elif index == 5:
+            self.ui.screen_5.setPixmap(pixmap)
+        elif index == 6:
+            self.ui.screen_6.setPixmap(pixmap)
+
+    self.MainWindow3.show()

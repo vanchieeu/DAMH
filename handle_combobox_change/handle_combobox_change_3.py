@@ -1,8 +1,10 @@
 import cv2
 import os
+import sys
 import numpy as np
-from GUI.bo_loc_min import Ui_MainWindow2
+from GUI.bo_loc_sac_net import Ui_MainWindow2
 from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5 import QtCore, QtGui, QtWidgets
 import matplotlib.pyplot as plt
 from PyQt5.QtGui import QPixmap
 from convert_img_to_pixmap.convert_img_to_pixmap import convert_array_to_pixmap
@@ -65,22 +67,27 @@ def compare_change_3(self):
     for i in [1, 2, 3, 4, 0]:
         self.uic.check_box_3.setCurrentIndex(i)
         handle_combobox_change_3(self, i)
+    set_screen_2(self)
 
-    fig = plt.figure(figsize=(16, 9))  # Tạo vùng vẽ tỷ lệ 16:9
-    (ax1, ax2, ax3), (ax4, ax5, ax6) = fig.subplots(2, 3)
+def set_screen_2(self):
+    self.MainWindow2 = QtWidgets.QMainWindow()
+    self.ui = Ui_MainWindow2()
+    self.ui.setupUi(self.MainWindow2)
 
-    for i in [1, 2, 3, 4]:
-        path = get_path(i)
+    for index in [1, 2, 3, 4]:
+        path = get_path(index)
         img = cv2.imread(path, 0)
-        if i == 1:
-            ax1.imshow(img, cmap='gray')
-        elif i == 2:
-            ax2.imshow(img, cmap='gray')
-        elif i == 3:
-            ax3.imshow(img, cmap='gray')
-        elif i == 4:
-            ax4.imshow(img, cmap='gray')
+        img = cv2.resize(src=img, dsize=(self.ui.screen_4.geometry().width(), self.ui.screen_1.geometry().height()))
+        pixmap = convert_array_to_pixmap(img)
+        if index == 1:
+            self.ui.screen_1.setPixmap(pixmap)
+        elif index == 2:
+            self.ui.screen_2.setPixmap(pixmap)
+        elif index == 3:
+            self.ui.screen_3.setPixmap(pixmap)
+        elif index == 4:
+            self.ui.screen_4.setPixmap(pixmap)
 
-    plt.show()
+    self.MainWindow2.show()
 
 
