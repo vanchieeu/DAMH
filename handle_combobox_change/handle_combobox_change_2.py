@@ -23,6 +23,7 @@ def handle_combobox_change_2(self, index):
             self.uic.screen.setPixmap(QPixmap(get_path(self.uic.check_box_2.currentIndex())))
         else:
             imgTB = Tich_chap(img, locTB)
+        #    imgTB = cv2.resize(src=imgTB, dsize=(230, 391))
             pixmap = convert_array_to_pixmap(imgTB)
             self.uic.screen.setPixmap(pixmap)
             save_img(self.uic.check_box_2.currentIndex(), imgTB)
@@ -81,7 +82,7 @@ def set_screen_2(self):
     for index in [1, 2, 3, 4, 5, 6]:
         path = get_path(index)
         img = cv2.imread(path, 0)
-        img = cv2.resize(src=img, dsize=(self.ui.screen_1.geometry().width(), self.ui.screen_1.geometry().height()))
+        img = cv2.resize(src=img, dsize=(269, 259))
         pixmap = convert_array_to_pixmap(img)
         if index == 1:
             self.ui.screen_1.setPixmap(pixmap)
