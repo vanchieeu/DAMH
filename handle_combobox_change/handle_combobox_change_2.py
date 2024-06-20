@@ -14,7 +14,7 @@ def get_path(index):
 
 def handle_combobox_change_2(self, index):
     self.uic.save.show()
-    img = cv2.imread(self.image_path, cv2.IMREAD_GRAYSCALE)
+    img = cv2.imread(self.image_path, cv2.IMREAD_COLOR)
     if self.uic.check_box_2.currentIndex() == 0:
         self.uic.save.hide()
         self.uic.screen.setPixmap(QPixmap(self.image_path))
@@ -22,51 +22,68 @@ def handle_combobox_change_2(self, index):
         if os.path.isfile(get_path(self.uic.check_box_2.currentIndex())) == True:
             self.uic.screen.setPixmap(QPixmap(get_path(self.uic.check_box_2.currentIndex())))
         else:
-            imgTB = Tich_chap(img, locTB)
-        #    imgTB = cv2.resize(src=imgTB, dsize=(230, 391))
-            pixmap = convert_array_to_pixmap(imgTB)
-            self.uic.screen.setPixmap(pixmap)
+            b_channel, g_channel, r_channel = cv2.split(img)
+            b_channel = Tich_chap(b_channel, locTB)
+            g_channel = Tich_chap(g_channel, locTB)
+            r_channel = Tich_chap(r_channel, locTB)
+            imgTB = cv2.merge([b_channel, g_channel, r_channel])
             save_img(self.uic.check_box_2.currentIndex(), imgTB)
+            self.uic.screen.setPixmap(QPixmap(get_path(self.uic.check_box_2.currentIndex())))
     elif self.uic.check_box_2.currentIndex() == 2:
         if os.path.isfile(get_path(self.uic.check_box_2.currentIndex())) == True:
             self.uic.screen.setPixmap(QPixmap(get_path(self.uic.check_box_2.currentIndex())))
         else:
-            imgTB_TS = Tich_chap(img, locTB_trong_so)
-            pixmap = convert_array_to_pixmap(imgTB_TS)
-            self.uic.screen.setPixmap(pixmap)
+            b_channel, g_channel, r_channel = cv2.split(img)
+            b_channel = Tich_chap(b_channel, locTB_trong_so)
+            g_channel = Tich_chap(g_channel, locTB_trong_so)
+            r_channel = Tich_chap(r_channel, locTB_trong_so)
+            imgTB_TS = cv2.merge([b_channel, g_channel, r_channel])
             save_img(self.uic.check_box_2.currentIndex(), imgTB_TS)
+            self.uic.screen.setPixmap(QPixmap(get_path(self.uic.check_box_2.currentIndex())))
     elif self.uic.check_box_2.currentIndex() == 3:
         if os.path.isfile(get_path(self.uic.check_box_2.currentIndex())) == True:
             self.uic.screen.setPixmap(QPixmap(get_path(self.uic.check_box_2.currentIndex())))
         else:
-            imgTV = loc_trung_vi(img)
-            pixmap = convert_array_to_pixmap(imgTV)
-            self.uic.screen.setPixmap(pixmap)
+            b_channel, g_channel, r_channel = cv2.split(img)
+            b_channel = loc_trung_vi(b_channel)
+            g_channel = loc_trung_vi(g_channel)
+            r_channel = loc_trung_vi(r_channel)
+            imgTV = cv2.merge([b_channel, g_channel, r_channel])
             save_img(self.uic.check_box_2.currentIndex(), imgTV)
+            self.uic.screen.setPixmap(QPixmap(get_path(self.uic.check_box_2.currentIndex())))
     elif self.uic.check_box_2.currentIndex() == 4:
         if os.path.isfile(get_path(self.uic.check_box_2.currentIndex())) == True:
             self.uic.screen.setPixmap(QPixmap(get_path(self.uic.check_box_2.currentIndex())))
         else:
-            imgGaussian = Tich_chap(img, locGaussian)
-            pixmap = convert_array_to_pixmap(imgGaussian)
-            self.uic.screen.setPixmap(pixmap)
+            b_channel, g_channel, r_channel = cv2.split(img)
+            b_channel = Tich_chap(b_channel, locGaussian)
+            g_channel = Tich_chap(g_channel, locGaussian)
+            r_channel = Tich_chap(r_channel, locGaussian)
+            imgGaussian = cv2.merge([b_channel, g_channel, r_channel])
             save_img(self.uic.check_box_2.currentIndex(), imgGaussian)
+            self.uic.screen.setPixmap(QPixmap(get_path(self.uic.check_box_2.currentIndex())))
     elif self.uic.check_box_2.currentIndex() == 5:
         if os.path.isfile(get_path(self.uic.check_box_2.currentIndex())) == True:
             self.uic.screen.setPixmap(QPixmap(get_path(self.uic.check_box_2.currentIndex())))
         else:
-            imgMax = loc_max_min(img, 1)
-            pixmap = convert_array_to_pixmap(imgMax)
-            self.uic.screen.setPixmap(pixmap)
+            b_channel, g_channel, r_channel = cv2.split(img)
+            b_channel = loc_max_min(b_channel, 1)
+            g_channel = loc_max_min(b_channel, 1)
+            r_channel = loc_max_min(b_channel, 1)
+            imgMax = cv2.merge([b_channel, g_channel, r_channel])
             save_img(self.uic.check_box_2.currentIndex(), imgMax)
+            self.uic.screen.setPixmap(QPixmap(get_path(self.uic.check_box_2.currentIndex())))
     elif self.uic.check_box_2.currentIndex() == 6:
         if os.path.isfile(get_path(self.uic.check_box_2.currentIndex())) == True:
             self.uic.screen.setPixmap(QPixmap(get_path(self.uic.check_box_2.currentIndex())))
         else:
-            imgMin = loc_max_min(img, 2)
-            pixmap = convert_array_to_pixmap(imgMin)
-            self.uic.screen.setPixmap(pixmap)
+            b_channel, g_channel, r_channel = cv2.split(img)
+            b_channel = loc_max_min(b_channel, 2)
+            g_channel = loc_max_min(b_channel, 2)
+            r_channel = loc_max_min(b_channel, 2)
+            imgMin = cv2.merge([b_channel, g_channel, r_channel])
             save_img(self.uic.check_box_2.currentIndex(), imgMin)
+            self.uic.screen.setPixmap(QPixmap(get_path(self.uic.check_box_2.currentIndex())))
 
 def compare_change_2(self):
     for i in [1, 2, 3, 4, 5, 6, 0]:

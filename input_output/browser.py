@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QFileDialog
+from PyQt5.QtWidgets import QFileDialog, QMainWindow
 from PyQt5.QtGui import QPixmap
 import os
 import cv2
@@ -10,7 +10,9 @@ def linkto(main_window):
 
         img = cv2.imread(link[0])
         height, width, channels = img.shape
-        main_window.uic.screen.setGeometry((671-10)+1, 90, height, width)
+
+        main_window.uic.screen.setGeometry(10, 90, height, width)
+
 
         main_window.uic.screen.setPixmap(QPixmap(main_window.image_path))
         main_window.uic.line_Edit.setText(main_window.image_path)
