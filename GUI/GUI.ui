@@ -310,16 +310,6 @@
       <string>Butterworth thông thấp</string>
      </property>
     </item>
-    <item>
-     <property name="text">
-      <string>Gaussian thông cao</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Gaussian thông thấp</string>
-     </property>
-    </item>
    </widget>
    <widget class="QSplitter" name="splitter">
     <property name="geometry">

@@ -115,8 +115,6 @@ class Ui_MainWindow(object):
         self.check_box_4.addItem("")
         self.check_box_4.addItem("")
         self.check_box_4.addItem("")
-        self.check_box_4.addItem("")
-        self.check_box_4.addItem("")
         self.splitter = QtWidgets.QSplitter(self.centralwidget)
         self.splitter.setGeometry(QtCore.QRect(620, 10, 51, 24))
         self.splitter.setOrientation(QtCore.Qt.Horizontal)
@@ -170,8 +168,6 @@ class Ui_MainWindow(object):
         self.check_box_4.setItemText(0, _translate("MainWindow", "None"))
         self.check_box_4.setItemText(1, _translate("MainWindow", "Butterworth thông cao"))
         self.check_box_4.setItemText(2, _translate("MainWindow", "Butterworth thông thấp"))
-        self.check_box_4.setItemText(3, _translate("MainWindow", "Gaussian thông cao"))
-        self.check_box_4.setItemText(4, _translate("MainWindow", "Gaussian thông thấp"))
         self.compare_3.setText(_translate("MainWindow", "Compare"))
         self.compare_4.setText(_translate("MainWindow", "Compare"))
 
