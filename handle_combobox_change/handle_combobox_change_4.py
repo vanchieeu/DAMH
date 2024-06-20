@@ -65,7 +65,6 @@ def handle_combobox_change_4(self, index):
                 g_xy_p[x, y] = g_array[x, y] * np.power(-1, x + y)
 
         # Bước 7: Rút trích ảnh kích thước MxN từ ảnh PxQ
-        # Và đây ảnh cuối cùng sau khi lọc
         g_xy = g_xy_p[:shape[0], :shape[1]]
 
         img_new = g_xy.astype(np.uint8)
